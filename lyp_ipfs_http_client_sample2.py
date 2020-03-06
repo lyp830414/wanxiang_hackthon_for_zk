@@ -76,7 +76,7 @@ class IPFSClient:
                             ]
                 }
         
-        print('\nFile data prepared as following. Len of data: %d' %len(data1))
+        print('\nFile data prepared as following. Len of data: %d' %len(str(data1)))
         print('''data1 = {
                    "file": [
                       {

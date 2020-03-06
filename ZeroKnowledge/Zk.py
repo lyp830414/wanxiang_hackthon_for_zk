@@ -126,8 +126,8 @@ class Zk():
         securityParameter = 10
         oneWayPerm = bbs.bbs(securityParameter)
         hardcorePred = bbs.parity
-        self.scheme = BBSStringCommitmentScheme(100000, oneWayPerm, hardcorePred)
-        self.verifier = BBSStringCommitmentVerifier(100000, oneWayPerm, hardcorePred)
+        self.scheme = BBSStringCommitmentScheme(700000, oneWayPerm, hardcorePred)
+        self.verifier = BBSStringCommitmentVerifier(700000, oneWayPerm, hardcorePred)
 
     def changeSecret(self, sec = []):
         if len(sec) == 0:
