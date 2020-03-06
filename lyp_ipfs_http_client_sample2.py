@@ -156,6 +156,13 @@ class IPFSClient:
         print('Done.\n')
         print('''len of ZK2 data: %d''' %len(str(zk2)))
         
+        #print('FAKE here: old zk1 len: %d' %len(str(zk1)))
+        #zk1 = verify_file(zero,secrets, zk2)
+        #print('FAKE here2: now new zk1: %s' %(eval(zk1)['zk1']) )
+        #import sys
+        #sys.exit(1)
+
+
         while True:
             y=input('\n--Do you want to view the raw data of ZK2 ? [yes/no]')
             
@@ -201,9 +208,9 @@ class IPFSClient:
         
         print('ZK1 before: len: %d' %len(str(zk1)))
         zk1 = verify_file(zero, secrets, zk2)
-        print('OK, we got len new zk1: %d' %len(str(zk1)))
+        print('OK, we got len new zk1: %d' %len(str(eval(zk1)['zk1'])))
         #return
-        orign_file_info = verify_file(zero, secrets, zk1)
+        orign_file_info = verify_file(zero, secrets, eval(zk1)['zk1'])
         
         print('Done.\n')
         print('File Content: ', orign_file_info)

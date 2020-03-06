@@ -71,7 +71,7 @@ class IPFSClient:
         data1 = {
                     "file": [
                                 {
-                                    "md5_hash": md5,
+                                    "md5_hash": str(md5),
                                     "ipfs_hash": hash
                                 }
                             ]
@@ -133,9 +133,9 @@ class IPFSClient:
                     "zk1":  zk1,
                     "zk2":  [
                             {
-                                "md5_hash": md5,
+                                "md5_hash": str(md5),
                                 "add_time": ts
-                            }
+                            },
                         ]
                 }
         
@@ -200,11 +200,11 @@ class IPFSClient:
         
         print('\n++++ 步骤 6. 用file_zk.txt 验证你的文件%s 的正确性....\n' %path)
         
-        #print('ZK1 before: len: %d' %len(str(zk1)))
+        print('ZK1 before: len: %d' %len(str(zk1)))
         zk1 = verify_file(zero, secrets, zk2)
-        #print('OK, we got len new zk1: %d' %len(str(zk1)))
+        print('OK, we got len new zk1: %d' %len(str(zk1)))
         #return
-        orign_file_info = verify_file(zero, secrets, zk1)
+        orign_file_info = verify_file(zero, secrets, str(eval(zk1)['zk1']))
         
         print('验证完毕.\n')
         print('文件内容: ', orign_file_info)
